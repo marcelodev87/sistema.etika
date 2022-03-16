@@ -1,0 +1,341 @@
+/*
+    Title: Application
+    Author: Bruno Kaue
+    Website: https://brunokaue.com.br
+*/
+
+/*
+    Dashboard - Header
+*/
+.main-header.dark-bg {
+    background-color: #446cb3;
+}
+
+.main-header .logo.dark-bg {
+    background-color: #f7f7f7;
+}
+
+.main-header .logo.dark-bg .img-responsive {
+    display: inline-block !important;
+}
+
+/*
+    Dashboard - Sidebar
+*/
+.main-sidebar.dark-bg {
+    background-color: #24252a;
+}
+
+.user-panel.black-bg {
+    background: #24252a;
+}
+
+.main-header.dark-bg .nav .open > a,
+.main-header.dark-bg .navbar-custom-menu ul.navbar-nav li.dropdown a:hover {
+    background: #36568e;
+    color: #FFF;
+}
+
+.sidebar-menu li.header.dark-bg {
+    border-bottom: solid 1px #393939;
+    border-top: solid 1px #393939;
+    background-color: rgba(255, 255, 255, .05);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.dark-bg ul.sidebar-menu > li > a i {
+    color: #aaa;
+    transition: color 1s ease;
+}
+
+.dark-bg ul.sidebar-menu > li > a:hover > i {
+    color: #fff;
+}
+
+select.form-control {
+    padding-top: 4px !important;
+    padding-bottom: 2px !important;
+}
+
+
+/*
+    Dashboard - Profile
+*/
+.profile .chart-box {
+    padding-left: 0px;
+}
+
+.profile ul.nav {
+    transition: all .5s ease;
+}
+
+.profile ul.nav li {
+    border-left: 5px solid #fff;
+    transition: all .5s ease;
+}
+
+.profile ul.nav li a {
+    color: #666;
+    transition: all .5s ease;
+}
+
+.profile ul.nav li.active {
+    border-left-color: #36568E;
+}
+
+.profile ul.nav li.active a {
+    background-color: #fff;
+    border-right-color: #fff;
+    color: #36568E;
+}
+
+.profile ul.nav li a i {
+    width: 20px;
+    text-align: center;
+}
+
+.profile #linkUploadAvatar .cover {
+    position: relative;
+}
+
+.profile #linkUploadAvatar .conver > .image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.profile #linkUploadAvatar > .cover .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5); /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile #linkUploadAvatar > .cover:hover .overlay {
+    opacity: 1;
+}
+
+/*
+    Autentication
+*/
+.col-logo {
+    background-color: #F7F7F7;
+}
+
+.col-logo img{
+    width: 250px;
+    padding: 20px;
+}
+.col-form footer {
+    padding: 15px 30px 15px !important;
+}
+
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    padding-bottom: 0;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
+    margin-top: 25px;
+}
+
+/* .main-header.dark-bg {background: #281B89;} */
+/* .main-header .logo.dark-bg {background: #2f209e;} */
+/* .main-header.dark-bg .navbar-custom-menu ul.navbar-nav li.dropdown a:hover{background: #2f209e;} */
+/* .main-header.dark-bg .nav .open > a, .dark-bg .nav .open > a:focus, .dark-bg.nav .open > a:hover{background: #2f209e} */
+.main-header .sidebar-toggle::before {
+    content: none !important;
+}
+
+.sidebar-toggle {
+    margin-top: 1px;
+}
+
+@media (min-width: 768px) {
+    .sidebar-mini.sidebar-collapse .main-header .logo {
+        color: #fff
+    }
+}
+
+.user-panel > .info {
+    margin-top: 11px;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.btn-group-sm > .btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+}
+
+
+/* custom */
+.mt-1 {
+    margin-top: 7px;
+}
+
+.mt-2 {
+    margin-top: 14px;
+}
+
+.mb-1 {
+    margin-bottom: 7px;
+}
+
+.mb-2 {
+    margin-bottom: 14px;
+}
+
+.ml-1 {
+    margin-left: 7px;
+}
+
+.ml-2 {
+    margin-left: 14px;
+}
+
+.mr-1 {
+    margin-right: 7px;
+}
+
+.mr-2 {
+    margin-right: 14px;
+}
+
+table > thead > tr > th {
+    text-transform: uppercase;
+!important
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.navbar-nav > li > a {
+    color: #fff !important;
+}
+
+.form-inline {
+    display: inline !important
+}
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+blockquote {
+    font-size: 16px;
+    border-left: 5px solid #446CB3;
+
+}
+
+blockquote small {
+    color: #2e3131;
+}
+
+.checkbox {
+    line-height: 23px !important;
+}
+
+.chart-box-paddingless {
+    padding: 0
+}
+
+.ml-1 {
+    margin-left: 7px !important;
+}
+
+.form-group-mt-0 .form-group {
+    margin-bottom: 0 !important;
+}
+
+
+.sidebar-right-blank {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    width: 350px;
+    height: 100%;
+    padding: 14px;
+    z-index: 99999;
+    box-shadow: -1px -1px 10px 0 #666;
+    display: block;
+}
+
+.sidebar-right-blank .header {
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sidebar-right-blank .header > h3 {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+}
+
+.sidebar-right-blank .header > a {
+    position: absolute;
+    top: 20px;
+}
+
+.sidebar-right-blank .body {
+    overflow-y: scroll !important;
+    height: calc(100% - 60px);
+}
+
+.sidebar-right-blank .body > .panel {
+    margin-bottom: 7px;
+}
+
+.sidebar-right-blank .body > .panel > .panel-heading {
+    padding: 7px;
+}
+
+.sidebar-right-blank .body > .panel > .panel-heading > h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.sidebar-right-blank .body > .panel > .panel-body {
+    padding: 7px;
+    margin-bottom: 2px;
+}
+
+.bootstrap-select + .bootstrap-select {
+    margin-top: 7px;
+}
+
+.bootstrap-select .btn.dropdown-toggle {
+    padding: 5px 20px !important;
+}
