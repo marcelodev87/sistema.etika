@@ -201,6 +201,7 @@ Route::group(['as' => 'app.', 'middleware' => ['auth', 'role']], function () {
 
         Route::match(['get', 'post'], '/estatuto-episcopal', ['uses' => 'GeraDocumentoController@estatutoEpiscopal', 'as' => 'estatutoEpiscopal', 'roles' => ['adm', 'usr']]);
         Route::match(['get', 'post'], '/contrato-contabil', ['uses' => 'GeraDocumentoController@contratoContabil', 'as' => 'contratoContabil', 'roles' => ['adm', 'usr']]);
+        Route::match(['get', 'post'], '/edital-convocacao', ['uses' => 'GeraDocumentoController@editalConvocacao', 'as' => 'editalConvocacao', 'roles' => ['adm', 'usr']]);
         Route::match(['get', 'post'], '/contrato-abertura', ['uses' => 'GeraDocumentoController@contratoAbertura', 'as' => 'contratoAbertura', 'roles' => ['adm', 'usr']]);
         Route::match(['get', 'post'], '/estatuto-congregacional', ['uses' => 'GeraDocumentoController@estatudoCongregacional', 'as' => 'estatutoCongregacional', 'roles' => ['adm', 'usr']]);
 

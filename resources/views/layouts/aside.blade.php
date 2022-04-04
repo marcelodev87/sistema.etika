@@ -95,6 +95,9 @@
                     <li class="{{ menuPath(['app.documents.ataFundacao'], 'active') }}">
                         <a href="{{ route('app.documents.ataFundacao') }}">Ata de Fundação</a>
                     </li>
+                    <li class="{{ menuPath(['app.documents.editalConvocacao'], 'active') }}">
+                        <a href="{{ route('app.documents.editalConvocacao') }}">Edital de Convocação</a>
+                    </li>
                     <li class="{{ menuPath(['app.documents.estatutoCongregacional'], 'active') }}">
                         <a href="{{ route('app.documents.estatutoCongregacional') }}">Congregacional</a>
                     </li>

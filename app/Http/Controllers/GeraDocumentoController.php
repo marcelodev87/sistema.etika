@@ -211,4 +211,19 @@ class GeraDocumentoController extends Controller
         }
         return view('documents.contratoAbertura', compact('post', 'request'));
     }
+
+    public function editalConvocacao(Request $request)
+    {
+        setlocale(LC_ALL, 'pt_BR.utf-8', 'ptb', 'pt_BR', 'portuguese-brazil', 'portuguese-brazilian', 'bra', 'brazil', 'br');
+        $post = [];
+        if ($request->isMethod('post')) {
+            $igreja = Client::find($request->client_id);
+            $post[0] = $igreja;
+            $p = $igreja->members()->where('role', 'Presidente')->first();
+            if ($p) {
+                $post[1] = $p;
+            }
+        }
+        return view('documents.edital', compact('post', 'request'));
+    }
 }
