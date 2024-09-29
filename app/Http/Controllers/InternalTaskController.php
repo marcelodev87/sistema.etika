@@ -167,7 +167,6 @@ class InternalTaskController extends Controller
                 'responsible_id' => $t->user_id
             ];
             array_push($tarefas, $arr);
-
         }
 
         return view('sectorTasks', compact('tarefas', 'type'));
