@@ -298,48 +298,63 @@ Route::group(['prefix' => 'external'], function () {
     Route::group(['prefix' => 'enterprises'], function () {
         Route::get('/', ['uses' => 'ExternalController@getEnterprises']);
         Route::get('/{id}', ['uses' => 'ExternalController@getEnterpriseById']);
+        Route::get('/dc/{document}', ['uses' => 'ExternalController@getEnterpriseByDocument']);
         Route::post('/', ['uses' => 'ExternalController@createEnterprise']);
         Route::put('/{client}', ['uses' => 'ExternalController@updateEnterprise']);
+        Route::put('/dc/{document}', ['uses' => 'ExternalController@updateEnterpriseByDocument']);
     });
 
     //Membros
     Route::group(['prefix' => 'members'], function () {
         Route::get('/{id}', ['uses' => 'ExternalController@getMembers']);
         Route::get('/{member}/enterprise/{client}', ['uses' => 'ExternalController@getMemberById']);
+        Route::get('/dc/{document}', ['uses' => 'ExternalController@getMembersByDocument']);
+        Route::get('/dc/{member}/enterprise/{client}', ['uses' => 'ExternalController@getMemberByDoc']);
         Route::post('/{client}', ['uses' => 'ExternalController@createMember']);
+        Route::post('/dc/{client}', ['uses' => 'ExternalController@createMemberByDoc']);
         Route::post('/{member}/enterprise/{enterprise}/phone', ['uses' => 'ExternalController@setMemberPhone']);
-        Route::post('/{member}/enterprise/{enterprise}/phone/default', ['uses' => 'ExternalController@setMemberPhoneDefault']);
+        Route::post('/dc/{member}/enterprise/{enterprise}/phone', ['uses' => 'ExternalController@setMemberPhoneByDoc']);
         Route::post('/{member}/enterprise/{enterprise}/email', ['uses' => 'ExternalController@setMemberEmail']);
+        Route::post('dc/{member}/enterprise/{enterprise}/email', ['uses' => 'ExternalController@setMemberEmailByDoc']);
         Route::post('/{member}/enterprise/{enterprise}/address', ['uses' => 'ExternalController@setMemberAddress']);
+        Route::post('/dc/{member}/enterprise/{enterprise}/address', ['uses' => 'ExternalController@setMemberAddressByDoc']);
         Route::put('/{member}/enterprise/{client}', ['uses' => 'ExternalController@updateMember']);
+        Route::put('/dc/{member}/enterprise/{client}', ['uses' => 'ExternalController@updateMemberByDoc']);
     });
 
     // Mandatos
     Route::group(['prefix' => 'mandatos'], function () {
         Route::get('/{client}', ['uses' => 'ExternalController@getMandatos']);
+        Route::get('/dc/{document}', ['uses' => 'ExternalController@getMandatosByDoc']);
         Route::post('/{client}', ['uses' => 'ExternalController@createMandato']);
+        Route::post('/dc/{document}', ['uses' => 'ExternalController@createMandatoByDoc']);
     });
 
     // Assinaturas
     Route::group(['prefix' => 'subscriptions'], function () {
         Route::get('/', ['uses' => 'ExternalController@getSubscriptions']);
+        Route::get('/{id}', ['uses' => 'ExternalController@getSubscriptionsEnterprise']);
+        Route::get('/dc/{document}', ['uses' => 'ExternalController@getSubscriptionsEnterpriseByDoc']);
     });
 
     // Tarefas
     Route::group(['prefix' => 'tasks'], function () {
         Route::get('/', ['uses' => 'ExternalController@getTasks']);
-        Route::get('/enterprise/{id}', ['uses' => 'ExternalController@getTaskInEnterprise']);
+        Route::get('/{id}', ['uses' => 'ExternalController@getTasksDetails']);
+        Route::get('/enterprise/{id}', ['uses' => 'ExternalController@getTasksById']);
+        Route::get('enterprise/dc/{id}', ['uses' => 'ExternalController@getTasksByDoc']);
         Route::post('/', ['uses' => 'ExternalController@createTask']);
-        Route::put('/{id}', ['uses' => 'ExternalController@updateTask']);
     });
 
     // Processos
     Route::group(['prefix' => 'processes'], function () {
         Route::get('/', ['uses' => 'ExternalController@getProcesses']);
-        Route::get('/enterprise/{id}', ['uses' => 'ExternalController@getProcessInEnterprise']);
         Route::get('/{id}', ['uses' => 'ExternalController@getProcessById']);
+        Route::get('/enterprise/{id}', ['uses' => 'ExternalController@getProcessInEnterprise']);
+        Route::get('/enterprise/dc/{document}', ['uses' => 'ExternalController@getProcessInEnterpriseByDoc']);
         Route::post('/', ['uses' => 'ExternalController@createProcess']);
         Route::post('/enterprise/{client}', ['uses' => 'ExternalController@setProcessInEnterprise']);
+        Route::post('/enterprise/dc/{document}', ['uses' => 'ExternalController@setProcessInEnterpriseByDoc']);
         Route::put('/{internalProcess}', ['uses' => 'ExternalController@updateProcess']);
     });
 });
