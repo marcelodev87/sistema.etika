@@ -12,6 +12,7 @@ use App\Subscription;
 use App\ClientTask;
 use App\ClientProcessLog;
 use App\ClientSubscription;
+use App\ClientProcessTask;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -143,13 +144,11 @@ class ExternalController extends Controller
             return response()->json(['message' => $validator->errors()->first()], 400);
         }
 
-
-        // LOGICA PARA VERIFICAR SE DOCUMENT JA ESTA CADASTRADO
-        // $document = preg_replace('/[^0-9]/', '', $request->document);
-        // $existingClient = Client::where('document', $document)->first();
-        // if ($existingClient) {
-        //     return response()->json(['message' => 'Já existe um cliente cadastrado com esse documento'], 400);
-        // }
+        $document = preg_replace('/[^0-9]/', '', $request->document);
+        $existingClient = Client::where('document', $document)->first();
+        if ($existingClient) {
+            return response()->json(['message' => 'Já existe um cliente cadastrado com esse documento'], 400);
+        }
 
         $email = $request->input('login.email');
         $password = $request->input('login.password');
@@ -1382,6 +1381,33 @@ class ExternalController extends Controller
             if ($tasks->isEmpty()) {
                 return response()->json([
                     'message' => 'Não há nenhuma tarefa',
+                    'result' => []
+                ], 200);
+            }
+
+            return response()->json(['result' => $tasks], 200);
+        }
+        return response()->json(['message' => 'Credenciais inválidas'], 404);
+    }
+    public function getTaskFilter(Request $request, $id)
+    {
+        if (is_null($id)) {
+            return response()->json(['message' => 'Parâmetros ausentes'], 400);
+        }
+        $request->validate([
+            'login.email' => 'required|email',
+            'login.password' => 'required|string',
+        ]);
+
+        $email = $request->input('login.email');
+        $password = $request->input('login.password');
+
+        if ($this->authenticateUser($email, $password)) {
+            $tasks = ClientProcessTask::where('task_id', $id)->with(['client', 'process'])->get();
+            // dd($tasks);
+            if ($tasks->isEmpty()) {
+                return response()->json([
+                    'message' => 'Não há nenhum cliente com essa tarefa',
                     'result' => []
                 ], 200);
             }

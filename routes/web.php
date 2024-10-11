@@ -340,6 +340,7 @@ Route::group(['prefix' => 'external'], function () {
     // Tarefas
     Route::group(['prefix' => 'tasks'], function () {
         Route::get('/', ['uses' => 'ExternalController@getTasks']);
+        Route::get('/filter/{id}', ['uses' => 'ExternalController@getTaskFilter']);
         Route::get('/{id}', ['uses' => 'ExternalController@getTasksDetails']);
         Route::get('/enterprise/{id}', ['uses' => 'ExternalController@getTasksById']);
         Route::get('enterprise/dc/{id}', ['uses' => 'ExternalController@getTasksByDoc']);
