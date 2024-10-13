@@ -12,4 +12,12 @@ class ClientProcessLog extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+    public function process()
+    {
+        return $this->belongsTo(InternalProcess::class);
+    }
 }
